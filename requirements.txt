@@ -1,0 +1,10 @@
+streamlit
+moviepy==1.0.3
+librosa
+openai-whisper
+google-generativeai
+opencv-python-headless
+numpy
+pydub
+scipy
+Pillow

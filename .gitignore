@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.env
+
+# MoviePy / Video Temporary Files
+*.mp4
+*.wav
+*.mp3
+*.mkv
+*.mov
+temp_*/
+
+# Streamlit (Crucial: Hide your secrets!)
+.streamlit/secrets.toml
+
+# IDEs
+.vscode/
+.idea/
+.DS_Store
+
+# Mac
+.DS_Store
+<line-break>
