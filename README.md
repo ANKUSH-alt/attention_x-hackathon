@@ -7,7 +7,10 @@ An automated system that transforms long-form videos (lectures, podcasts, worksh
 **🔗 Live Demo:** [attentionx-hackathon.streamlit.app](https://attentionx-hackathon-henfjhgvip5tl99x3eyvbi.streamlit.app/)
 
 ## 📺 Demo Video
-![Viral Short Demo](demo_video.mp4)
+
+[![Watch Demo Video](https://img.shields.io/badge/▶%20Watch%20Demo-Google%20Drive-blue?style=for-the-badge&logo=googledrive)](https://drive.google.com/file/d/1KUEHVqhlyFNqfq-nm8sq4CBXbVRDmYjt/view?usp=drive_link)
+
+> Click the button above to watch the full demo of AI Viral Shorts Creator in action.
 
 ## ✨ Features
 
