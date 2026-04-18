@@ -7,7 +7,7 @@ An automated system that transforms long-form videos (lectures, podcasts, worksh
 **🔗 Live Demo:** [attentionx-hackathon.streamlit.app](https://attentionx-hackathon-henfjhgvip5tl99x3eyvbi.streamlit.app/)
 
 ## 📺 Demo Video
-![Viral Short Demo](WhatsApp Video 2026-04-18 at 18.05.56.mp4)
+![Viral Short Demo](demo_video.mp4)
 
 ## ✨ Features
 
