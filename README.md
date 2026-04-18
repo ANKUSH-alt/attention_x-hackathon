@@ -4,63 +4,47 @@ An automated system that transforms long-form videos (lectures, podcasts, worksh
 
 ## ✨ Features
 
-1. **Emotional Peak Detection**
-   - Transcribes audio and maps it precisely using **OpenAI Whisper**
-   - Analyzes audio volume and energy spikes using **Librosa** to identify the most hype/energetic moments.
-   - Leverages **Gemini 1.5 Flash** to analyze transcript chunks and energy peaks to find the single most "shareable" 30-60s segment, with a punchy viral hook headline.
+1. **AI Storyboarding (Summarization)**
+   - Transcribes entire videos and maps them precisely using **OpenAI Whisper**.
+   - Leverages **Gemini 2.5 Flash** to read the full context and intelligently select discrete segments that summarize the entire video into a <60s viral short.
+   - Automatically detects audio energy peaks (loud/excited moments) using **Librosa** to guide the selection.
 
-2. **Smart Vertical Cropping**
+2. **Smart Face-Tracking (9:16 Crop)**
    - Converts standard 16:9 horizontal videos to 9:16 vertical format.
-   - Automatically utilizes **MediaPipe Face Detection (Computer Vision)** to track the speaker's face and perfectly center them.
+   - Automatically utilizes **OpenCV Haar-Cascades** to track the speaker's face and perfectly center them in every frame.
 
-3. **Dynamic Caption Generation**
-   - Generates karaoke-style animated captions.
-   - Features precise timing based on Whisper's word-level timestamps.
-   - Highlights the currently spoken word, ensuring excellent retention rates.
-   - Injects heavy, high-contrast headline hooks over the video for maximum engagement.
+3. **Dynamic Karaoke Captions**
+   - Precise word-level highlighter based on STT timestamps.
+   - Features high-contrast hook headlines injected via **Pillow**.
 
 ## 🛠 Tech Stack
 
-- **AI/ML Layer**: Google Gemini 1.5 Flash (Analysis/Curation), OpenAI Whisper (STT)
-- **Video & Audio Processing**: MoviePy (Editing), Librosa (Audio analysis), MediaPipe (CV Face Tracking), Pillow/OpenCV (Drawing frames)
-- **Frontend App**: Streamlit
+- **AI/ML**: Google Gemini 2.5 Flash (Curation), OpenAI Whisper (Transcription)
+- **Video/Vision**: MoviePy (Editing), OpenCV (Face Tracking), Librosa (Audio), Pillow (Rendering)
+- **Frontend**: Streamlit
 
-## 🚀 Quick Start
+## 🚀 Deployment
 
-1. Create a Python environment:
-   ```bash
-   python3 -m venv venv
-   source venv/bin/activate
+### Recommended: Streamlit Community Cloud (Free & Easy)
+1. Push this code to your GitHub.
+2. Go to [share.streamlit.io](https://share.streamlit.io).
+3. Connect your repo and set main file to `app.py`.
+4. **Important**: Go to `Settings > Secrets` and add your API key:
+   ```toml
+   GEMINI_API_KEY = "your_key_here"
    ```
 
-2. Install dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
-   *(Ensure system dependencies like `ffmpeg` are installed: `brew install ffmpeg` on macOS or `sudo apt install ffmpeg` on Linux)*
-
-3. Run the application:
-   ```bash
-   streamlit run app.py
-   ```
-
-4. Usage:
-   - Provide your **Google Gemini API Key**
-   - Upload any long-form video (.mp4, .mov, etc.)
-   - Wait for the processing to finish, then download your viral short!
+### Why not Vercel?
+Streamlit is a stateful Python server and processing videos requires persistent memory/disk and long timeouts. Vercel's serverless functions are limited to 10-60s timeouts and small payloads, which will crash during video processing.
 
 ## 📁 Directory Structure
 ```
 .
-├── app.py                  # Main Streamlit dashboard
+├── app.py                  # Modernized Dashboard
 ├── core/
-│   ├── analyzer.py         # AI extraction, librosa energy mapping, and Gemini curation
-│   └── editor.py           # MoviePy automated editing, face tracking, and custom captions
+│   ├── analyzer.py         # Gemini 2.5 Logic & Whisper bypass
+│   └── editor.py           # OpenCV Face tracking & Concatenation engine
+├── .streamlit/             # (Ignored) Secret local config
 ├── requirements.txt        # Python dependencies
 └── README.md               # Documentation
 ```
-
-## ⚖️ Evaluation Criteria Addressed
-- **Impact & Innovation**: Solves a major pain point by truly integrating multi-modal AI (audio analysis + LLM transcript analysis + CV for video).
-- **Technical Execution**: Modularized code, automated frame-by-frame caption generation bypassing buggy libraries, dynamic layout handling.
-- **User Experience**: One-click UI via Streamlit with a clean minimal design showing active progress steps.

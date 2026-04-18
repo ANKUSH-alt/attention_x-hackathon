@@ -150,8 +150,8 @@ if uploaded_file is not None and api_key:
                 st.status("Detecting Emotional Peaks...")
                 peaks = analyze_audio_energy(audio_path)
                 
-                st.status("Transcribing with Whisper...")
-                transcript = transcribe_audio(audio_path)
+                st.status("Transcribing with Gemini...")
+                transcript = transcribe_audio(audio_path, api_key)
                 
                 st.status("Gemini extracting the best summary chunks...")
                 viral_segment = summarize_video_into_short(transcript, peaks, api_key)

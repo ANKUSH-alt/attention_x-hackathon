@@ -4,11 +4,15 @@ This project transforms long-form horizontal content into engaging 9:16 vertical
 
 ## 🏗 System Architecture
 
-1. **Transcription**: **OpenAI Whisper** for high-accuracy word-level timing.
+1. **Transcription**: **Gemini 2.5 Flash** (Multimodal) for lightning-fast transcription without heavy local models.
 2. **Audio Intelligence**: **Librosa** energy mapping to detect hype peaks.
 3. **AI Editor**: **Gemini 2.5 Flash** acts as a lead editor, selecting snippets that summarize the video narrative.
 4. **Computer Vision**: **OpenCV** face tracking to ensure the subject is always centered in the vertical crop.
 5. **Captioning**: Frame-by-frame rendering with **Pillow** to create high-retention karaoke captions.
+
+### Optimization Notes
+- **Removed Whisper/Torch**: Significantly reduced deployment time and server startup by switching to Gemini API for transcription.
+- **FFmpeg Inclusion**: Added `packages.txt` for seamless cloud execution.
 
 ## 🚀 Deployment Guide
 
@@ -24,6 +28,6 @@ git push -u origin main
 3. In **Advanced Settings**, add your Secret: `GEMINI_API_KEY = "your-key"`.
 
 ### Tech Stack
-- **AI**: Gemini 2.5 Flash, Whisper
+- **AI**: Gemini 2.5 Flash (Transcription & Summarization)
 - **Video**: MoviePy, OpenCV, Librosa
 - **UI**: Streamlit (with Custom CSS)
